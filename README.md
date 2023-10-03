@@ -12,4 +12,4 @@ In this article, we will discuss the ATM Management System in C++ which is an ap
 * 6.Cancel the transaction.
 * Updated on:
 *        03 Oct 2023
-*        By: Karthik Prabhu
+         By: Karthik Prabhu
