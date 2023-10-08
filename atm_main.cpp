@@ -6,17 +6,32 @@ using namespace std;
 class atm
 {
 private:
-    int choice,with_amt,dep_amt,pin_ver,votp,gpin1,gpinf,pin,step;
-    float bal;
+    int choice,with_amt,dep_amt,pin_ver,votp,gpin1,gpinf,step,ced;
+    float bal=1000;
 public:
     int choicef();
     int with_money();
     int dep_money();
     int gpin();
+    int verf(int pinv);
+    int pin=2468;
 
 };
+//ATM PIN VERIFICATION
+int atm::verf(int pinv)
+{
+    if(pin==pinv)
+    {
+        return 1;
+    }
+        else
+    {    
+        return 0;
+    }
+}
+
 //selecting choice (screen 1)
-atm::choicef(/* args */)
+int atm::choicef(/* args */)
 {   
     system("CLS");
     cout<<"     >>>select<<< "<<endl;
@@ -62,32 +77,61 @@ int atm::gpin() {
 }
 }
 // withdraw money
-atm::with_money()
-{
+int atm::with_money()
+{  atm p2;
    system("CLS");
    cout<<"enter amount to withdarw"<<endl;
    cin>>with_amt;
    system("CLS");
-   cout<<"Enter you PIN"<<endl;
+loc3:   cout<<"Enter you PIN"<<endl;
    cin>>pin_ver;
-   return 0;
+   switch (p2.verf(pin_ver))
+   {
+   case 1:
+   bal=bal-with_amt;
+   system("CLS");
+    cout<<"cash withdrawed successfully"<<endl;
+    break;
+   
+   default:
+   system("CLS");
+   cout<<"Incorrect PIN Try Again!"<<endl;
+   goto loc3;
+    break;
+   }
 }
 
 //deposit money
-atm::dep_money()
+int atm::dep_money()
 {
+   atm p2;
    system("CLS");
    cout<<"enter amount to deposit"<<endl;
    cin>>dep_amt;
    system("CLS");
-   cout<<"Enter you PIN"<<endl;
-   cin>>pin_ver;
-   return 0;
+loc4: cout<<"Enter you PIN"<<endl;
+      cin>>pin_ver;
+      switch (p2.verf(pin_ver))
+   {
+   case 1:
+   bal=bal+dep_amt;
+   system("CLS");
+    cout<<"cash deposition successfull"<<endl;
+    break;
+   
+   default:
+   system("CLS");
+   cout<<"Incorrect PIN Try Again!"<<endl;
+   goto loc4;
+    break;
+   }
+   
 }
 
 /*atm::~atm()
 {
 } */
+
 
 int main()
 {
@@ -117,4 +161,3 @@ int main()
     }
     return 0;
 }
-//By: Karthik (K4) 
