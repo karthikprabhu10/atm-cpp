@@ -11,5 +11,5 @@ In this article, we will discuss the ATM Management System in C++ which is an ap
 * 5.Enter amount to be withdrawn from the account, and then it shows available balance.
 * 6.Cancel the transaction.
 * Updated on:
-*        11 Oct 2023
+*        14 Oct 2023
          By: Karthik Prabhu
